@@ -16,6 +16,6 @@ export class AuthController {
 	async stravaCallback(@Query('code') code: string, @Res() res: Response) {
 		const { access_token } = await this.authService.exchangeCodeForToken(code);
 
-		return res.redirect(`${process.env.CLIENT_URL}/dashboard?token=${access_token}`);
+		return res.redirect(`${process.env.CLIENT_URL}/auth?token=${access_token}`);
 	}
 }
